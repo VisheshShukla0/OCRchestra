@@ -34,7 +34,7 @@ for idx in range(len(TEXTS)):
     font_file_path = f"{font_files_root}/{subdir}/{random.choice(font_files)}"
 
     img, img_seg, img_rect, img_annot = get_OCR_data(content=text, canvas_resolution=(2048,2048), text_area=(1024,1024), font_file_path = font_file_path, colormap=colormap)
-    os.makedirs(f"{save_root}/{idx}/")
+    os.makedirs(f"{save_root}/{idx}/", exist_ok=True)
     cv2.imwrite(f"{save_root}/{idx}/text.jpg", img)
     cv2.imwrite(f"{save_root}/{idx}/seg.jpg", img_seg)
     cv2.imwrite(f"{save_root}/{idx}/boxes.jpg", img_rect)
