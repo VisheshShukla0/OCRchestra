@@ -21,5 +21,5 @@ def ask( pipe, query):
         messages,
         max_new_tokens=256,
     )
-    response = outputs[0]["generated_text"][-1]
+    response = outputs[0]["generated_text"][-1]['content']
     return response
