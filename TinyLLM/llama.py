@@ -14,7 +14,7 @@ def create_pipe():
 
 def ask( pipe, query):
     messages = [
-    {"role": "system", "content": "You are a pirate chatbot who always responds in pirate speak!"},
+    {"role": "system", "content": "You are a an expert chatbot who carefully follow user's instructions."},
     {"role": "user", "content": f"{query}"},
     ]
     outputs = pipe(
