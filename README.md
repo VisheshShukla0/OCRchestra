@@ -4,3 +4,6 @@
 </a>
 <br>
 Please click on 'Open in Colab' and follow the instruction inside the notebook to run 'OCRchestra' demo.
+<br>
+<br>
+<img src="https://github.com/VisheshShukla0/OCRchestra/blob/main/assets/banner.png" alt="drawing" width="2000"/>
