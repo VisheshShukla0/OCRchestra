@@ -21,7 +21,7 @@ def create_pipe(cpu_offload=False):
     pipe.enable_model_cpu_offload()
     return pipe
 
-def generate(pipe, image, prompt, num_denoising_steps=50):
+def generate(pipe, image, prompt, num_denoising_steps=30):
     w,h,_ = image.shape
     image = cv2.resize(image, (1024,1024))
     canny_image = cv2.Canny(image, 100, 200)
