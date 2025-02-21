@@ -18,9 +18,10 @@ def create_pipe(cpu_offload=False):
         vae=vae,
         torch_dtype=torch.float16,
     )
+    pipe.enable_model_cpu_offload()
     return pipe
 
-def generate( pipe, image, prompt):
+def generate(pipe, image, prompt):
     canny_image = cv2.Canny(image, 100, 200)
     canny_image = canny_image[:, :, None]
     canny_image = np.concatenate([canny_image, canny_image, canny_image], axis=2)
