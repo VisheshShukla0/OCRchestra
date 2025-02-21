@@ -22,7 +22,10 @@ def create_pipe():
     return pipe
 
 def generate( pipe, text_image, prompt):
-    canny = cv2.Canny(text_image, 100, 200)
+    canny_image = cv2.Canny(text_image, 100, 200)
+    canny_image = canny_image[:, :, None]
+    canny_image = np.concatenate([canny_image, canny_image, canny_image], axis=2)
+    canny_image = Image.fromarray(canny_image)
     negative_prompt = 'low quality, bad quality, sketches'
     controlnet_conditioning_scale = 0.7
     images = pipe(prompt, negative_prompt=negative_prompt, image=canny, controlnet_conditioning_scale=controlnet_conditioning_scale,

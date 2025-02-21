@@ -9,7 +9,7 @@ def create_pipe():
         model=model_id,
         torch_dtype=torch.bfloat16,
         device_map="auto",
-        model_kwargs={"temperature": 0.0,
+        model_kwargs={"temperature": 0.7,
                   "do_sample":True,
                               "top_p":0.0,
                               "top_k":0,},
