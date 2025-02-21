@@ -18,7 +18,6 @@ def create_pipe():
         vae=vae,
         torch_dtype=torch.float16,
     )
-    pipe.enable_model_cpu_offload()
     return pipe
 
 def generate( pipe, text_image, prompt):
