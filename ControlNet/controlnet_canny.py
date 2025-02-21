@@ -33,6 +33,6 @@ def generate(pipe, image, prompt, num_denoising_steps=30):
     images = pipe(prompt, negative_prompt=negative_prompt, image=canny_image, controlnet_conditioning_scale=controlnet_conditioning_scale, num_inference_steps=num_denoising_steps
     ).images
     output = images[0]
-    generated_img = cv2.resize(output, (h,w))
+    generated_img = cv2.resize(np.asarray(output), (h,w))
     canny_image = cv2.resize(canny_image, (h,w))
     return canny_image, generated_img
