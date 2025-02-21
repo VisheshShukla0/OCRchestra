@@ -21,14 +21,18 @@ def create_pipe(cpu_offload=False):
     pipe.enable_model_cpu_offload()
     return pipe
 
-def generate(pipe, image, prompt):
+def generate(pipe, image, prompt, num_denoising_steps=50):
+    w,h,_ = image.shape
+    image = cv2.resize(image, (1024,1024))
     canny_image = cv2.Canny(image, 100, 200)
     canny_image = canny_image[:, :, None]
     canny_image = np.concatenate([canny_image, canny_image, canny_image], axis=2)
     canny_image = Image.fromarray(canny_image)
     negative_prompt = 'low quality, bad quality, sketches'
     controlnet_conditioning_scale = 0.7
-    images = pipe(prompt, negative_prompt=negative_prompt, image=canny_image, controlnet_conditioning_scale=controlnet_conditioning_scale,
+    images = pipe(prompt, negative_prompt=negative_prompt, image=canny_image, controlnet_conditioning_scale=controlnet_conditioning_scale, num_inference_steps=num_denoising_steps
     ).images
     output = images[0]
-    return output
+    generated_img = cv2.resize(output, (h,w))
+    canny_image = cv2.resize(canny_image, (h,w))
+    return canny_image, generated_img
