@@ -34,5 +34,5 @@ def generate(pipe, image, prompt, num_denoising_steps=30):
     ).images
     output = images[0]
     generated_img = cv2.resize(np.asarray(output), (h,w))
-    canny_image = cv2.resize(canny_image, (h,w))
+    canny_image = cv2.resize(np.asarray(canny_image), (h,w))
     return canny_image, generated_img
