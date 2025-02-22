@@ -36,7 +36,7 @@ def transform_image(img,ang_range,shear_range,trans_range,brightness=0):
     tr_y = trans_range*np.random.uniform()-trans_range/2
     Trans_M = np.float32([[1,0,tr_x],[0,1,tr_y]])
 
-    # Shear
+    # Warping
     pts1 = np.float32([[5,5],[20,5],[5,20]])
     pt1 = 5+shear_range*np.random.uniform()-shear_range/2
     pt2 = 20+shear_range*np.random.uniform()-shear_range/2
