@@ -9,4 +9,7 @@
 <br>
 <img src="https://github.com/VisheshShukla0/OCRchestra/blob/main/assets/banner.png" alt="drawing" width="2000"/>
 
+**Samples:** A few generated OCR images and their annotations are available [here](https://drive.google.com/drive/folders/1E-frMPXoPCeQvMhrcGAXopktPIxih7oz?usp=sharing).
+
+
 **Evaluation:** For testing EasyOCR on OCRchestra dataset, please download the model weights from [this](https://drive.google.com/drive/folders/1zpTO2iig6jd2OhssKp7BImCaClE_QHDQ?usp=sharing) link, and then follow the instructions provided in the original [EasyOCR repo](https://github.com/JaidedAI/EasyOCR).
